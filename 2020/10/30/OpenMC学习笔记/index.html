@@ -20,15 +20,15 @@
     var CONFIG = {"hostname":"yeweihong.github.io","root":"/","scheme":"Gemini","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":false,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="OpenMC的安装在Ubuntu中安装各种东西都在终端中进行：  首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了） 安装完了conda之后就能用conda命令进行安装OpenMC，按照以下步骤一步一步来：12345conda config --add channels conda-forge \\这是设定下载源conda search openmc\\查找ope">
+  <meta name="description" content="1.OpenMC的安装OpenMC是MIT开发的一个用来对核反应堆进行计算的包，开源免费，使用蒙特卡洛方法，最近在学这个。在Ubuntu中安装各种东西都在终端中进行：  首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="OpenMC学习笔记">
 <meta property="og:url" content="https://yeweihong.github.io/2020/10/30/OpenMC%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/index.html">
 <meta property="og:site_name" content="小泓同学的博客🍀">
-<meta property="og:description" content="OpenMC的安装在Ubuntu中安装各种东西都在终端中进行：  首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了） 安装完了conda之后就能用conda命令进行安装OpenMC，按照以下步骤一步一步来：12345conda config --add channels conda-forge \\这是设定下载源conda search openmc\\查找ope">
+<meta property="og:description" content="1.OpenMC的安装OpenMC是MIT开发的一个用来对核反应堆进行计算的包，开源免费，使用蒙特卡洛方法，最近在学这个。在Ubuntu中安装各种东西都在终端中进行：  首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了）">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2020-10-29T16:00:00.000Z">
-<meta property="article:modified_time" content="2020-10-30T04:30:57.725Z">
+<meta property="article:modified_time" content="2020-10-30T04:48:17.348Z">
 <meta property="article:author" content="YeWeihong">
 <meta property="article:tag" content="Notes">
 <meta property="article:tag" content="OpenMCLearning">
@@ -187,7 +187,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2020-10-30 00:00:00 / Modified: 12:30:57" itemprop="dateCreated datePublished" datetime="2020-10-30T00:00:00+08:00">2020-10-30</time>
+              <time title="Created: 2020-10-30 00:00:00 / Modified: 12:48:17" itemprop="dateCreated datePublished" datetime="2020-10-30T00:00:00+08:00">2020-10-30</time>
             </span>
 
           
@@ -201,11 +201,11 @@
     <div class="post-body" itemprop="articleBody">
 
       
-        <h1 id="OpenMC的安装"><a href="#OpenMC的安装" class="headerlink" title="OpenMC的安装"></a>OpenMC的安装</h1><p>在Ubuntu中安装各种东西都在终端中进行：</p>
+        <h1 id="1-OpenMC的安装"><a href="#1-OpenMC的安装" class="headerlink" title="1.OpenMC的安装"></a>1.OpenMC的安装</h1><p>OpenMC是MIT开发的一个用来对核反应堆进行计算的包，<br>开源免费，使用蒙特卡洛方法，最近在学这个。<br>在Ubuntu中安装各种东西都在终端中进行：</p>
 <ul>
-<li>首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了）</li>
+<li>首先安装Anaconda，这个就建议大家自己去网上搜索相关的教程（主要是因为我忘了）<a id="more"></a></li>
 <li>安装完了conda之后就能用<code>conda</code>命令进行安装OpenMC，按照以下步骤一步一步来：<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">conda config --add channels conda-forge \\这是设定下载源</span><br><span class="line">conda search openmc\\查找openmc这个包</span><br><span class="line">conda create -n openmc-env openmc\\openmc-env是指openmc的环境，相当于正在安装了</span><br><span class="line">\\激活openmc</span><br><span class="line">conda activate openmc-env\\你会发现运行环境是在openmc-env中了</span><br></pre></td></tr></table></figure>
-</li>
+由于在Ubuntu中会内置一个Python，但是它是在基本环境中运行的Python，无法<code>import openmc</code>，<br>所以，我们要在openmc-env的环境中再安装一个Python(其实conda已经帮我们装好了)，那么我们只要完善<br>一些必要的库就行了，比如<code>jupyter notebook</code>，有这个notebook写代码就比较舒服。安装的时候我们得注意是在<br>openmc-env的环境中安装，也就是说要先激活openmc-env<code>conda activate openmc-env</code>，安装完成后试着运行就好了。<br>PS:下载jupyter notebook的时候，最好改一下国内的镜像源，也直接用pip安装就行:<code>pip install XXX -i https://pypi.tuna.tsinghua.edu.cn/simple</code><br>安装过程中可能会有报错，直接重复安装的命令就可，最后运行jupyter notebook这样就能快乐写代码了！</li>
 </ul>
 
     </div>
@@ -288,7 +288,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
-          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#OpenMC的安装"><span class="nav-number">1.</span> <span class="nav-text">OpenMC的安装</span></a></li></ol></div>
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#1-OpenMC的安装"><span class="nav-number">1.</span> <span class="nav-text">1.OpenMC的安装</span></a></li></ol></div>
       </div>
       <!--/noindex-->
 
